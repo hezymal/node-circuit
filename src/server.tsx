@@ -1,11 +1,9 @@
-import * as React from "react";
 import express from "express";
-import mustache from "mustache-express";
 import { MongoClient } from "mongodb";
-import { renderToString } from "react-dom/server";
+import mustache from "mustache-express";
 import { from, iif, of } from "rxjs";
-import { filter, map, switchMap, mergeMap, tap, take, takeLast, mapTo, concatMap } from "rxjs/operators";
-import Bootstrap from "./Components/Bootstrap";
+import { concatMap, map, mapTo } from "rxjs/operators";
+import mainRoute from "Routes/main";
 import * as config from "../config.json";
 
 const app = express();
@@ -16,16 +14,7 @@ app.set("views", __dirname + "/Templates");
 
 app.use(express.static("./dist"));
 
-app.get("/", (req, res) => {
-    const clientApp = renderToString(<Bootstrap />);
-    const bundle = "/bundle.js"
-
-    res.render("main", {
-        title: "info-circuit",
-        content: clientApp,
-        bundle,
-    });
-});
+app.get("/", mainRoute);
 
 interface Item {
     key: string;
@@ -64,38 +53,6 @@ app.get("/add", (req, res) => {
             res.write(html);
             res.end();
         });
-});
-
-app.get("/add", async (req, res) => {
-    const client = new MongoClient(config.db.url, { useNewUrlParser: true });
-    await client.connect();
-    const db = client.db(config.db.name);
-    const itemsCollection = db.collection<Item>("items");
-
-    const count = await itemsCollection.countDocuments();
-    if (count === 0) {
-        itemsCollection.insertMany([
-            { key: "1", value: 1 },
-            { key: "2", value: 2 },
-            { key: "3", value: 3 },
-        ]);
-    }
-
-    let html = "";
-    const items = await itemsCollection.find({}).toArray();
-    for (const item of items) {
-        html += `<div>${item.value}</div>`;
-    }
-
-    const all = await from(itemsCollection.find({}).toArray()).forEach(x => {
-        x.
-    });
-
-    res.writeHead(200);
-    res.write(html);
-    res.end();
-
-    client.close();
 });
 
 app.listen(config.server.port, () => {

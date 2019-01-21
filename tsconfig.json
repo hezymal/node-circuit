@@ -4,10 +4,21 @@
         "module": "commonjs",
         "target": "es5",
         "baseUrl": ".",
+        "paths": {
+            "Actions": ["./src/Actions"],
+            "Components/*": ["./src/Components/*"],
+            "Constants/*": ["./src/Constants/*"],
+            "Handlers/*": ["./src/Handlers/*"],
+            "Handlers": ["./src/Handlers"],
+            "Routes/*": ["./src/Routes/*"],
+            "Templates/*": ["./src/Templates/*"],
+            "Types/*": ["./src/Types/*"],
+            "Root/*": ["./src/*"]
+        },
         "jsx": "react",
         "esModuleInterop": true,
         "resolveJsonModule": true,
-        "lib": ["es2017"]
+        "lib": ["es2017", "dom"]
     },
     "include": [
         "./src/**/*"

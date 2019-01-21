@@ -1,34 +1,19 @@
-import React, { Component } from "react";
+import * as React from "react";
 
-interface IState {
-    message: string;
+export interface Props {
+    value: string;
+    ping: () => void;
 }
 
-class Bootstrap extends Component<{}, IState> {
-    constructor(props: {}) {
-        super(props);
+function Bootstrap(props: Props) {
+    const { value, ping } = props;
 
-        this.onButtonClick = this.onButtonClick.bind(this);
-
-        this.state = {
-            message: "Hello",
-        };
-    }
-
-    onButtonClick() {
-        this.setState({ message: "You clicked on button" });
-    }
-
-    render() {
-        const { message } = this.state;
-
-        return (
-            <div>
-                <button onClick={this.onButtonClick}>Button</button>
-                {message}
-            </div>
-        );
-    }
+    return (
+        <div>
+            <button onClick={ping}>Button</button>
+            {value}
+        </div>
+    );
 };
 
 export default Bootstrap;

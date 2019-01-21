@@ -5,7 +5,7 @@ const rootPath = path.resolve(__dirname, "..");
 module.exports = {
     mode: "development",
     entry: {
-        bundle: rootPath + "/src/client.tsx",
+        bundle: rootPath + "/src/front-client.tsx",
     },
     output: {
         path: rootPath + "/dist",
@@ -21,5 +21,14 @@ module.exports = {
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"],
+        alias: {
+            Actions: path.resolve(rootPath, "src/Actions/"),
+            Components: path.resolve(rootPath, "src/Components/"),
+            Constants: path.resolve(rootPath, "src/Constants/"),
+            Handlers: path.resolve(rootPath, "src/Handlers/"),
+            Routes: path.resolve(rootPath, "src/Routes/"),
+            Templates: path.resolve(rootPath, "src/Templates/"),
+            Types: path.resolve(rootPath, "src/Types/"),
+        },
     },
 };

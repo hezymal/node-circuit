@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "server": "npx ts-node ./src/server.tsx",
-    "build-client": "npx webpack --config ./build-scripts/dev.webpack.config.js"
+    "server": "npx ts-node -r tsconfig-paths/register ./src/server.tsx",
+    "client-builder": "npx webpack --config ./build-scripts/dev.webpack.config.js",
+    "client-watcher": "npx webpack --config ./build-scripts/dev.webpack.config.js"
   },
   "author": "hezymal@gmail.com",
   "license": "ISC",
@@ -17,6 +18,7 @@
     "@types/react-redux": "^7.0.0",
     "@types/redux": "^3.6.0",
     "awesome-typescript-loader": "^5.2.1",
+    "tsconfig-paths": "^3.7.0",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
   },
@@ -28,6 +30,7 @@
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
     "redux": "^4.0.1",
+    "redux-observable": "^1.0.0",
     "rxjs": "^6.3.3",
     "ts-node": "^7.0.1",
     "typescript": "^3.2.4"
