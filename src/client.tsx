@@ -1,12 +1,12 @@
 import * as React from "react";
-import { renderToString } from "react-dom/server";
+import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import { createEpicMiddleware } from "redux-observable";
-import Bootstrap from "Components/BootstrapContainer";
+import Bootstrap from "Components/Bootstrap";
 import { reducers, epics } from "Handlers";
 
-function renderClient() {
+function runClient() {
     const epicMiddleware = createEpicMiddleware()
     
     const store = createStore(
@@ -16,11 +16,12 @@ function renderClient() {
     
     epicMiddleware.run(epics);
     
-    return renderToString(
+    render(
         <Provider store={store}>
             <Bootstrap />
-        </Provider>
+        </Provider>, 
+        document.getElementById("root")
     );
 }
 
-export default renderClient;
+runClient();

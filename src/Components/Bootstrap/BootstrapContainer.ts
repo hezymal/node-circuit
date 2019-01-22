@@ -1,4 +1,4 @@
-import Bootstrap, { Props } from "Components/Bootstrap";
+import Bootstrap, { Props } from "./Bootstrap";
 import { connect, MapDispatchToProps, MapStateToProps } from "react-redux";
 import { ping } from "Actions";
 import StoreState from "Types/StoreState";

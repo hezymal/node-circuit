@@ -4,8 +4,9 @@ const rootPath = path.resolve(__dirname, "..");
 
 module.exports = {
     mode: "development",
+    devtool: "source-map",
     entry: {
-        bundle: rootPath + "/src/front-client.tsx",
+        bundle: rootPath + "/src/client.tsx",
     },
     output: {
         path: rootPath + "/dist",
@@ -17,6 +18,20 @@ module.exports = {
                 test: /\.tsx?$/,
                 loader: "awesome-typescript-loader",
             },
+            { 
+                test: /\.scss$/, 
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            localIdentName: "[name]__[local]__[hash:base64]",
+                            modules: true,
+                        },
+                    },
+                    "sass-loader",
+                ],
+            }
         ],
     },
     resolve: {

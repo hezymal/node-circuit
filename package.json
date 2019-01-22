@@ -1,11 +1,11 @@
 {
-  "name": "info-circuit",
+  "name": "node-circuit",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "server": "npx ts-node -r tsconfig-paths/register ./src/server.tsx",
     "client-builder": "npx webpack --config ./build-scripts/dev.webpack.config.js",
-    "client-watcher": "npx webpack --config ./build-scripts/dev.webpack.config.js"
+    "client-watcher": "npx webpack --watch --config ./build-scripts/dev.webpack.config.js"
   },
   "author": "hezymal@gmail.com",
   "license": "ISC",
@@ -18,7 +18,12 @@
     "@types/react-redux": "^7.0.0",
     "@types/redux": "^3.6.0",
     "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^2.1.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "tsconfig-paths": "^3.7.0",
+    "typings-for-css-modules-loader": "^1.7.0",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
   },
