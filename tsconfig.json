@@ -3,17 +3,16 @@
         "noImplicitAny": true,
         "module": "commonjs",
         "target": "es5",
-        "baseUrl": ".",
+        "baseUrl": "./src/",
         "paths": {
-            "Actions": ["./src/Actions"],
-            "Components/*": ["./src/Components/*"],
-            "Constants/*": ["./src/Constants/*"],
-            "Handlers/*": ["./src/Handlers/*"],
-            "Handlers": ["./src/Handlers"],
-            "Routes/*": ["./src/Routes/*"],
-            "Templates/*": ["./src/Templates/*"],
-            "Types/*": ["./src/Types/*"],
-            "Root/*": ["./src/*"]
+            "actions": ["front/actions"],
+            "components/*": ["front/components/*"],
+            "constants/*": ["constants/*"],
+            "handlers/*": ["front/handlers/*"],
+            "handlers": ["front/handlers"],
+            "routes/*": ["routes/*"],
+            "types/*": ["types/*"],
+            "templates/*": ["templates/*"]
         },
         "jsx": "react",
         "esModuleInterop": true,
@@ -22,5 +21,8 @@
     },
     "include": [
         "./src/**/*"
+    ],
+    "exclude": [
+        "./node_modules/**/*"
     ]
 }

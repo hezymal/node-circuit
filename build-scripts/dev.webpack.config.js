@@ -6,7 +6,7 @@ module.exports = {
     mode: "development",
     devtool: "source-map",
     entry: {
-        bundle: rootPath + "/src/client.tsx",
+        bundle: rootPath + "/src/front/index.tsx",
     },
     output: {
         path: rootPath + "/dist",
@@ -37,13 +37,13 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"],
         alias: {
-            Actions: path.resolve(rootPath, "src/Actions/"),
-            Components: path.resolve(rootPath, "src/Components/"),
-            Constants: path.resolve(rootPath, "src/Constants/"),
-            Handlers: path.resolve(rootPath, "src/Handlers/"),
-            Routes: path.resolve(rootPath, "src/Routes/"),
-            Templates: path.resolve(rootPath, "src/Templates/"),
-            Types: path.resolve(rootPath, "src/Types/"),
+            actions: path.resolve(rootPath, "src/front/actions/"),
+            components: path.resolve(rootPath, "src/front/components/"),
+            constants: path.resolve(rootPath, "src/constants/"),
+            handlers: path.resolve(rootPath, "src/front/handlers/"),
+            routes: path.resolve(rootPath, "src/routes/"),
+            types: path.resolve(rootPath, "src/types/"),
+            templates: path.resolve(rootPath, "src/templates/"),
         },
     },
 };

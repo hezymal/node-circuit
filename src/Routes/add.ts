@@ -1,27 +1,15 @@
-import express from "express";
 import { MongoClient } from "mongodb";
-import mustache from "mustache-express";
 import { from, iif, of } from "rxjs";
 import { concatMap, map, mapTo } from "rxjs/operators";
-import mainRoute from "Routes/main";
-import * as config from "../config.json";
-
-const app = express();
-
-app.engine("mustache", mustache());
-app.set("view engine", "mustache");
-app.set("views", __dirname + "/Templates");
-
-app.use(express.static("./dist"));
-
-app.get("/", mainRoute);
+import { RequestHandler } from "express";
 
 interface Item {
     key: string;
     value: number;
 }
 
-app.get("/add", (req, res) => {
+const route: RequestHandler = (req, res) => {
+    const config = req.app.get("custom.config");
     const client = new MongoClient(config.db.url, { useNewUrlParser: true });
     from(client.connect())
         .pipe(
@@ -53,8 +41,6 @@ app.get("/add", (req, res) => {
             res.write(html);
             res.end();
         });
-});
+}
 
-app.listen(config.server.port, () => {
-    console.log(`Server listening on port: ${config.server.port}`);
-});
+export default route;

@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import * as ui from "./ui";
 import { combineEpics } from "redux-observable";
+import * as ui from "./ui";
 
 export const reducers = combineReducers({
     ui: ui.reducers,

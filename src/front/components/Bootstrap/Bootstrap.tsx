@@ -1,4 +1,6 @@
 import * as React from "react";
+import Circuit from "components/Circuit";
+import Node from "components/Node";
 import * as Styles from "./Bootstrap.scss";
 
 export interface Props {
@@ -11,8 +13,9 @@ function Bootstrap(props: Props) {
 
     return (
         <div className={Styles.Bootstrap}>
-            <button onClick={ping}>Button</button>
-            {value}
+            <Circuit>
+                <Node title="Node #001" />
+            </Circuit>
         </div>
     );
 };

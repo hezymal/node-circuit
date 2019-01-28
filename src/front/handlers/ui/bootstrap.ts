@@ -1,9 +1,9 @@
 import { filter, mapTo, delay } from "rxjs/operators";
 import { combineEpics, Epic } from "redux-observable";
-import FSAction from "Types/FSAction";
-import BootstrapState from "Types/BootstrapState";
-import { PING, PONG } from "Constants/actionTypes";
-import { uiBootstrap as dataKey } from "Constants/dataKeys";
+import FSAction from "types/FSAction";
+import BootstrapState from "types/BootstrapState";
+import { PING, PONG } from "constants/actionTypes";
+import { uiBootstrap as dataKey } from "constants/dataKeys";
 
 function createState(): BootstrapState {
     return {

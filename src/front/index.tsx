@@ -3,8 +3,8 @@ import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import { createEpicMiddleware } from "redux-observable";
-import Bootstrap from "Components/Bootstrap";
-import { reducers, epics } from "Handlers";
+import Bootstrap from "components/Bootstrap";
+import { reducers, epics } from "handlers";
 
 function runClient() {
     const epicMiddleware = createEpicMiddleware()
