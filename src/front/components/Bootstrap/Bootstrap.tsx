@@ -15,6 +15,11 @@ function Bootstrap(props: Props) {
         <div className={Styles.Bootstrap}>
             <Circuit>
                 <Node title="Node #001" />
+                <Node title="Node #002" />
+                <Node title="Node #003" />
+                <Node title="Node #004" />
+                <Node title="Node #005" />
+                <Node title="Node #006" />
             </Circuit>
         </div>
     );

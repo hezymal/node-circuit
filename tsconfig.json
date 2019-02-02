@@ -3,16 +3,19 @@
         "noImplicitAny": true,
         "module": "commonjs",
         "target": "es5",
-        "baseUrl": "./src/",
+        "baseUrl": ".",
         "paths": {
-            "actions": ["front/actions"],
-            "components/*": ["front/components/*"],
-            "constants/*": ["constants/*"],
-            "handlers/*": ["front/handlers/*"],
-            "handlers": ["front/handlers"],
-            "routes/*": ["routes/*"],
-            "types/*": ["types/*"],
-            "templates/*": ["templates/*"]
+            "actions": ["src/front/actions"],
+            "components/*": ["src/front/components/*"],
+            "constants/*": ["src/constants/*"],
+            "handlers/*": ["src/front/handlers/*"],
+            "handlers": ["src/front/handlers"],
+            "routes/*": ["src/routes/*"],
+            "types/*": ["src/types/*"],
+            "templates/*": ["src/templates/*"],
+            "system/*": ["src/system/*"],
+            "env/*": ["src/env/development/*"],
+            "build-scripts/*": ["build-scripts/*"]
         },
         "jsx": "react",
         "esModuleInterop": true,
@@ -20,6 +23,7 @@
         "lib": ["es2017", "dom"]
     },
     "include": [
+        "./build-scripts/**/*",
         "./src/**/*"
     ],
     "exclude": [

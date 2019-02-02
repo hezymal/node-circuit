@@ -21,8 +21,6 @@ passport.deserializeUser(function (username, cb) {
 });
 
 export function init(app: Express) {
-    const config = app.get("custom.config");
-
     passport.use(new Strategy((username, password, done) => {
         console.log(username);
         return done(null, user);

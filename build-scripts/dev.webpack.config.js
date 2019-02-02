@@ -1,15 +1,15 @@
 const path = require("path");
-
+const webpack = require("webpack");
 const rootPath = path.resolve(__dirname, "..");
 
 module.exports = {
     mode: "development",
     devtool: "source-map",
     entry: {
-        bundle: rootPath + "/src/front/index.tsx",
+        bundle: [path.resolve(__dirname, "../src/front/index.tsx"), 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000'],
     },
     output: {
-        path: rootPath + "/dist",
+        path: path.resolve(__dirname, "../dist"),
         filename: "bundle.js"
     },
     module: {
@@ -34,6 +34,9 @@ module.exports = {
             }
         ],
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+    ],
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"],
         alias: {

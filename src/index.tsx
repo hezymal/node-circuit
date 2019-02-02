@@ -7,6 +7,7 @@ import mainRoute from "routes/main";
 import addRoute from "routes/add";
 import { init as initAuth } from "system/auth";
 import * as config from "../config.json";
+import configure from "env/configure";
 
 // create server
 const app = express();
@@ -22,11 +23,11 @@ app.set("views", __dirname + "/Templates");
 // set url encoder
 app.use(urlencoded({ extended: false }));
 
+// configuring for envirmonent
+configure(app);
+
 // initialize auth
 initAuth(app);
-
-// set static files middleware
-app.use(express.static("./dist"));
 
 // set routes
 app.get("/add", addRoute);
